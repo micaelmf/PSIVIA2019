@@ -49,8 +49,16 @@ public class ContandoLetrasDosNumeros {
 	}
 	
 	public int contaLetrasDeUmUnicoNumero(String numero) {
-		this.acomulador.append(this.hashMap.get(numero));
-		return this.acomulador.length();
+		if(hashMap.containsKey(numero)){
+			this.acomulador.append(this.hashMap.get(numero));
+			return this.acomulador.length();
+		}else if(numero.length() == 2 && numero.charAt(0) == '3'){
+			this.acomulador.append(this.hashMap.get("30"));
+			this.acomulador.append(" e ");
+			this.acomulador.append(this.hashMap.get(numero.charAt(1)));
+			return this.acomulador.length();
+		}
+		return -1;
 	}
 
 }

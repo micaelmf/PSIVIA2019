@@ -23,5 +23,14 @@ public class ContandoLetrasDosNumerosTestes {
 		
 		assertEquals(6, resultado);
 	}
-
+	
+	@Test
+	//Teste3
+	public void contaAsLetrasDoNumeroTrintaEDois() {
+		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
+		int resultado = contador.contaLetrasDeUmUnicoNumero("32");
+		
+		assertEquals(13, resultado);
+	}
+	
 }
