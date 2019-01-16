@@ -1,23 +1,49 @@
 package br.ivia.selecao.micael;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ContandoLetrasDosNumeros {
 	StringBuilder acomulador;
+	ArrayList<String> list;
 	HashMap<String, String> hashMap;
 	
 	public ContandoLetrasDosNumeros(){
 		this.acomulador = new StringBuilder();
+		this.list = new ArrayList<String>(29);
 		this.hashMap = new HashMap<String, String>();
-		this.hashMap.put("1", "um");
-		this.hashMap.put("2", "dois");
-		this.hashMap.put("3", "tres");
-		this.hashMap.put("4", "quatro");
-		this.hashMap.put("5", "cinco");
-		this.hashMap.put("6", "seis");
-		this.hashMap.put("7", "sete");
-		this.hashMap.put("8", "oito");
-		this.hashMap.put("9", "nove");
+		
+		this.list.add(0,null);
+		this.list.add(1,"um");
+		this.list.add(2,"dois");
+		this.list.add(3,"tres");
+		this.list.add(4,"quatro");
+		this.list.add(5,"cinco");
+		this.list.add(6,"seis");
+		this.list.add(7,"sete");
+		this.list.add(8,"oito");
+		this.list.add(9,"nove");
+		this.list.add(10,null);
+		this.list.add(11,null);
+		this.list.add(12,"vinte");
+		this.list.add(13,"trinta");
+		this.list.add(14,"quarenta");
+		this.list.add(15,"cinquanta");
+		this.list.add(16,"sessenta");
+		this.list.add(17,"setenta");
+		this.list.add(18,"oitenta");
+		this.list.add(19,"noventa");
+		this.list.add(20,null);
+		this.list.add(21,"cento");
+		this.list.add(22,"duzentos");
+		this.list.add(23,"trezentos");
+		this.list.add(24,"quatrocentos");
+		this.list.add(25,"quinhentos");
+		this.list.add(26,"seiscentos");
+		this.list.add(27,"setecentos");
+		this.list.add(28,"oitocentos");
+		this.list.add(29,"novecentos");
+		
 		this.hashMap.put("10", "dez");
 		this.hashMap.put("11", "onze");
 		this.hashMap.put("12", "doze");
@@ -28,36 +54,30 @@ public class ContandoLetrasDosNumeros {
 		this.hashMap.put("17", "dezessete");
 		this.hashMap.put("18", "dezoito");
 		this.hashMap.put("19", "dezenove");
-		this.hashMap.put("20", "vinte");
-		this.hashMap.put("30", "trinta");
-		this.hashMap.put("40", "quarenta");
-		this.hashMap.put("50", "cinquanta");
-		this.hashMap.put("60", "sessenta");
-		this.hashMap.put("70", "setenta");
-		this.hashMap.put("80", "oitenta");
-		this.hashMap.put("90", "noventa");
 		this.hashMap.put("100", "cem");
-		this.hashMap.put("200", "duzentos");
-		this.hashMap.put("300", "trezentos");
-		this.hashMap.put("400", "quatrocentos");
-		this.hashMap.put("500", "quinhentos");
-		this.hashMap.put("600", "seiscentos");
-		this.hashMap.put("700", "setecentos");
-		this.hashMap.put("800", "oitocentos");
-		this.hashMap.put("900", "novecentos");
 		this.hashMap.put("1000", "mil");
+		
+		
 	}
 	
 	public int contaLetrasDeUmUnicoNumero(String numero) {
-		if(hashMap.containsKey(numero)){
+		if(this.hashMap.containsKey(numero)){
 			this.acomulador.append(this.hashMap.get(numero));
 			return this.acomulador.length();
-		}else if(numero.length() == 2 && numero.charAt(0) == '3'){
-			this.acomulador.append(this.hashMap.get("30"));
-			this.acomulador.append(" e ");
-			this.acomulador.append(this.hashMap.get(numero.charAt(1)));
+		}else if(numero.length() == 1){
+			int numeroInteiro = Character.getNumericValue(numero.charAt(0));
+			this.acomulador.append(this.list.get(numeroInteiro));
+			return this.acomulador.length();
+		}else if(numero.length() == 2){
+			int numeroInteiro = Character.getNumericValue(numero.charAt(0));
+			this.acomulador.append(this.list.get(10+numeroInteiro));
+			if(numero.charAt(1) != '0'){
+				this.acomulador.append(" e ");
+				this.acomulador.append(this.list.get(Character.getNumericValue(numero.charAt(0))));
+			}
 			return this.acomulador.length();
 		}
+		
 		return -1;
 	}
 
