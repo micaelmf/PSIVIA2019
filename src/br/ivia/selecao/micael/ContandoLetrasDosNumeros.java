@@ -75,7 +75,7 @@ public class ContandoLetrasDosNumeros {
 				this.acomulado.append(this.list.get(Character.getNumericValue(numero.charAt(1))));
 			}
 
-		}else if(numero.length() == 3){
+		}else if(numero.length() == 3 && numero.charAt(1) != '1'){
 			int numeroInteiro = Character.getNumericValue(numero.charAt(0));
 			this.acomulado.append(this.list.get(20+numeroInteiro));
 			if(numero.charAt(1) != '0'){
@@ -88,7 +88,16 @@ public class ContandoLetrasDosNumeros {
 				this.acomulado.append(this.list.get(Character.getNumericValue(numero.charAt(2))));
 			}
 
+		}else if(numero.length() == 3 && numero.charAt(1) == '1'){
+			String dezena = Character.toString(numero.charAt(1));
+			dezena = dezena + Character.toString(numero.charAt(2));
+			int numeroInteiro = Character.getNumericValue(numero.charAt(0));
+
+			this.acomulado.append(this.list.get(20+numeroInteiro));
+			this.acomulado.append(" e ");
+			this.acomulado.append(this.hashMap.get(dezena));
 		}
+		
 	}
 	
 	public void acomulador(String numero){

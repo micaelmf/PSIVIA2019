@@ -69,7 +69,7 @@ public class ContandoLetrasDosNumerosTestes {
 		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
 		contador.acomulador("1000");
 		int resultado = contador.verAcomulado();
-		assertEquals(23263, resultado);
+		assertEquals(22894, resultado);
 	}
 	
 	@Test
@@ -81,5 +81,13 @@ public class ContandoLetrasDosNumerosTestes {
 		assertEquals(3, resultado);
 	}
 	
+	@Test
+	//Teste9
+	public void contaAsLetrasDoCentoEOnze() {
+		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
+		contador.contaLetrasDeUmUnicoNumero("111");
+		int resultado = contador.verAcomulado();
+		assertEquals(12, resultado);
+	}
 	
 }
