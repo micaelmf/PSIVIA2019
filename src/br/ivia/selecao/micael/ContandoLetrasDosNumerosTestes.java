@@ -10,7 +10,8 @@ public class ContandoLetrasDosNumerosTestes {
 	//Teste1
 	public void contaAsLetrasDoNumeroDois() {
 		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
-		int resultado = contador.contaLetrasDeUmUnicoNumero("2");
+		contador.contaLetrasDeUmUnicoNumero("2");
+		int resultado = contador.verAcomulado();
 		
 		assertEquals(4, resultado);
 	}
@@ -19,7 +20,8 @@ public class ContandoLetrasDosNumerosTestes {
 	//Teste2
 	public void contaAsLetrasDoNumeroTrinta() {
 		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
-		int resultado = contador.contaLetrasDeUmUnicoNumero("30");
+		contador.contaLetrasDeUmUnicoNumero("30");
+		int resultado = contador.verAcomulado();
 		
 		assertEquals(6, resultado);
 	}
@@ -28,7 +30,8 @@ public class ContandoLetrasDosNumerosTestes {
 	//Teste3
 	public void contaAsLetrasDoNumeroTrintaEDois() {
 		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
-		int resultado = contador.contaLetrasDeUmUnicoNumero("32");
+		contador.contaLetrasDeUmUnicoNumero("32");
+		int resultado = contador.verAcomulado();
 		
 		assertEquals(13, resultado);
 	}
@@ -37,8 +40,8 @@ public class ContandoLetrasDosNumerosTestes {
 	//Teste4
 	public void contaAsLetrasDoNumeroCentoEVinteECinco() {
 		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
-		int resultado = contador.contaLetrasDeUmUnicoNumero("125");
-		
+		contador.contaLetrasDeUmUnicoNumero("125");
+		int resultado = contador.verAcomulado();
 		assertEquals(21, resultado);
 	}
 	
@@ -46,10 +49,18 @@ public class ContandoLetrasDosNumerosTestes {
 	//Teste5
 	public void contaAsLetrasDoNumeroNovecentosEOitentaEUm() {
 		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
-		int resultado = contador.contaLetrasDeUmUnicoNumero("981");
-		
+		contador.contaLetrasDeUmUnicoNumero("981");
+		int resultado = contador.verAcomulado();
 		assertEquals(25, resultado);
 	}
 	
+	@Test
+	//Teste6
+	public void contaAsLetrasDeUmAteN() {
+		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
+		contador.acomulador("5");
+		int resultado = contador.verAcomulado();
+		assertEquals(21, resultado);
+	}
 	
 }

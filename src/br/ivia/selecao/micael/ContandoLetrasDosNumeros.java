@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ContandoLetrasDosNumeros {
-	StringBuilder acomulador;
-	ArrayList<String> list;
-	HashMap<String, String> hashMap;
+	private StringBuilder acomulado;
+	private ArrayList<String> list;
+	private HashMap<String, String> hashMap;
 	
 	public ContandoLetrasDosNumeros(){
-		this.acomulador = new StringBuilder();
+		this.acomulado = new StringBuilder();
 		this.list = new ArrayList<String>(29);
 		this.hashMap = new HashMap<String, String>();
 		
@@ -58,41 +58,50 @@ public class ContandoLetrasDosNumeros {
 		this.hashMap.put("1000", "mil");
 	}
 	
-	public int contaLetrasDeUmUnicoNumero(String numero) {
-		if(this.hashMap.containsKey(numero)){
-			this.acomulador.append(this.hashMap.get(numero));
+	public void contaLetrasDeUmUnicoNumero(String numero) {
 
-			return this.acomulador.length();
+		if(this.hashMap.containsKey(numero)){
+			this.acomulado.append(this.hashMap.get(numero));
+
 		}else if(numero.length() == 1){
 			int numeroInteiro = Character.getNumericValue(numero.charAt(0));
-			this.acomulador.append(this.list.get(numeroInteiro));
+			this.acomulado.append(this.list.get(numeroInteiro));
 
-			return this.acomulador.length();
 		}else if(numero.length() == 2){
 			int numeroInteiro = Character.getNumericValue(numero.charAt(0));
-			this.acomulador.append(this.list.get(10+numeroInteiro));
+			this.acomulado.append(this.list.get(10+numeroInteiro));
 			if(numero.charAt(1) != '0'){
-				this.acomulador.append(" e ");
-				this.acomulador.append(this.list.get(Character.getNumericValue(numero.charAt(1))));
+				this.acomulado.append(" e ");
+				this.acomulado.append(this.list.get(Character.getNumericValue(numero.charAt(1))));
 			}
 
-			return this.acomulador.length();
 		}else if(numero.length() == 3){
 			int numeroInteiro = Character.getNumericValue(numero.charAt(0));
-			this.acomulador.append(this.list.get(20+numeroInteiro));
+			this.acomulado.append(this.list.get(20+numeroInteiro));
 			if(numero.charAt(1) != '0'){
 				numeroInteiro = Character.getNumericValue(numero.charAt(1));
-				this.acomulador.append(" e ");
-				this.acomulador.append(this.list.get(10+numeroInteiro));
+				this.acomulado.append(" e ");
+				this.acomulado.append(this.list.get(10+numeroInteiro));
 			}
 			if(numero.charAt(2) != '0'){
-				this.acomulador.append(" e ");
-				this.acomulador.append(this.list.get(Character.getNumericValue(numero.charAt(2))));
+				this.acomulado.append(" e ");
+				this.acomulado.append(this.list.get(Character.getNumericValue(numero.charAt(2))));
 			}
 
-			return this.acomulador.length();
 		}
-		
-		return -1;
 	}
+	
+	public void acomulador(String numero){
+		int numeroInteiro = Integer.parseInt(numero);
+		for(int i = 0; i < numeroInteiro; i++){
+			int aux = i+1;
+			this.contaLetrasDeUmUnicoNumero(Integer.toString(aux));
+		}
+	}
+
+	public int verAcomulado() {
+		return acomulado.length();
+	}
+
+	
 }
