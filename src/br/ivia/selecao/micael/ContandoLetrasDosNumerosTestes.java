@@ -63,4 +63,14 @@ public class ContandoLetrasDosNumerosTestes {
 		assertEquals(21, resultado);
 	}
 	
+	@Test
+	//Teste7
+	public void contaAsLetrasDeUmAteMil() {
+		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
+		contador.acomulador("1000");
+		int resultado = contador.verAcomulado();
+		assertEquals(23263, resultado);
+	}
+	
+	
 }
