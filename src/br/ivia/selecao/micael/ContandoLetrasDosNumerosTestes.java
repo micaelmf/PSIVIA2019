@@ -33,4 +33,23 @@ public class ContandoLetrasDosNumerosTestes {
 		assertEquals(13, resultado);
 	}
 	
+	@Test
+	//Teste4
+	public void contaAsLetrasDoNumeroCentoEVinteECinco() {
+		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
+		int resultado = contador.contaLetrasDeUmUnicoNumero("125");
+		
+		assertEquals(21, resultado);
+	}
+	
+	@Test
+	//Teste5
+	public void contaAsLetrasDoNumeroNovecentosEOitentaEUm() {
+		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
+		int resultado = contador.contaLetrasDeUmUnicoNumero("981");
+		
+		assertEquals(25, resultado);
+	}
+	
+	
 }

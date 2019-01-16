@@ -56,29 +56,43 @@ public class ContandoLetrasDosNumeros {
 		this.hashMap.put("19", "dezenove");
 		this.hashMap.put("100", "cem");
 		this.hashMap.put("1000", "mil");
-		
-		
 	}
 	
 	public int contaLetrasDeUmUnicoNumero(String numero) {
 		if(this.hashMap.containsKey(numero)){
 			this.acomulador.append(this.hashMap.get(numero));
+
 			return this.acomulador.length();
 		}else if(numero.length() == 1){
 			int numeroInteiro = Character.getNumericValue(numero.charAt(0));
 			this.acomulador.append(this.list.get(numeroInteiro));
+
 			return this.acomulador.length();
 		}else if(numero.length() == 2){
 			int numeroInteiro = Character.getNumericValue(numero.charAt(0));
 			this.acomulador.append(this.list.get(10+numeroInteiro));
 			if(numero.charAt(1) != '0'){
 				this.acomulador.append(" e ");
-				this.acomulador.append(this.list.get(Character.getNumericValue(numero.charAt(0))));
+				this.acomulador.append(this.list.get(Character.getNumericValue(numero.charAt(1))));
 			}
+
+			return this.acomulador.length();
+		}else if(numero.length() == 3){
+			int numeroInteiro = Character.getNumericValue(numero.charAt(0));
+			this.acomulador.append(this.list.get(20+numeroInteiro));
+			if(numero.charAt(1) != '0'){
+				numeroInteiro = Character.getNumericValue(numero.charAt(1));
+				this.acomulador.append(" e ");
+				this.acomulador.append(this.list.get(10+numeroInteiro));
+			}
+			if(numero.charAt(2) != '0'){
+				this.acomulador.append(" e ");
+				this.acomulador.append(this.list.get(Character.getNumericValue(numero.charAt(2))));
+			}
+
 			return this.acomulador.length();
 		}
 		
 		return -1;
 	}
-
 }
