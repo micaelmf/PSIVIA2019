@@ -71,7 +71,7 @@ public class ContandoLetrasDosNumeros {
 			int numeroInteiro = Character.getNumericValue(numero.charAt(0));
 			this.acomulado.append(this.list.get(10+numeroInteiro));
 			if(numero.charAt(1) != '0'){
-				this.acomulado.append(" e ");
+				this.acomulado.append("e");
 				this.acomulado.append(this.list.get(Character.getNumericValue(numero.charAt(1))));
 			}
 
@@ -80,11 +80,11 @@ public class ContandoLetrasDosNumeros {
 			this.acomulado.append(this.list.get(20+numeroInteiro));
 			if(numero.charAt(1) != '0'){
 				numeroInteiro = Character.getNumericValue(numero.charAt(1));
-				this.acomulado.append(" e ");
+				this.acomulado.append("e");
 				this.acomulado.append(this.list.get(10+numeroInteiro));
 			}
 			if(numero.charAt(2) != '0'){
-				this.acomulado.append(" e ");
+				this.acomulado.append("e");
 				this.acomulado.append(this.list.get(Character.getNumericValue(numero.charAt(2))));
 			}
 
@@ -94,7 +94,7 @@ public class ContandoLetrasDosNumeros {
 			int numeroInteiro = Character.getNumericValue(numero.charAt(0));
 
 			this.acomulado.append(this.list.get(20+numeroInteiro));
-			this.acomulado.append(" e ");
+			this.acomulado.append("e");
 			this.acomulado.append(this.hashMap.get(dezena));
 		}
 		

@@ -33,7 +33,7 @@ public class ContandoLetrasDosNumerosTestes {
 		contador.contaLetrasDeUmUnicoNumero("32");
 		int resultado = contador.verAcomulado();
 		
-		assertEquals(13, resultado);
+		assertEquals(11, resultado);
 	}
 	
 	@Test
@@ -42,7 +42,7 @@ public class ContandoLetrasDosNumerosTestes {
 		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
 		contador.contaLetrasDeUmUnicoNumero("125");
 		int resultado = contador.verAcomulado();
-		assertEquals(21, resultado);
+		assertEquals(17, resultado);
 	}
 	
 	@Test
@@ -51,7 +51,7 @@ public class ContandoLetrasDosNumerosTestes {
 		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
 		contador.contaLetrasDeUmUnicoNumero("981");
 		int resultado = contador.verAcomulado();
-		assertEquals(25, resultado);
+		assertEquals(21, resultado);
 	}
 	
 	@Test
@@ -69,7 +69,7 @@ public class ContandoLetrasDosNumerosTestes {
 		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
 		contador.acomulador("1000");
 		int resultado = contador.verAcomulado();
-		assertEquals(22894, resultado);
+		assertEquals(19672, resultado);
 	}
 	
 	@Test
@@ -87,7 +87,7 @@ public class ContandoLetrasDosNumerosTestes {
 		ContandoLetrasDosNumeros contador = new ContandoLetrasDosNumeros();
 		contador.contaLetrasDeUmUnicoNumero("111");
 		int resultado = contador.verAcomulado();
-		assertEquals(12, resultado);
+		assertEquals(10, resultado);
 	}
 	
 }
